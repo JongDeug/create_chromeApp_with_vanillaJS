@@ -1,0 +1,79 @@
+basic data type
+
+number 
+string
+
+<variables>
+-const 상수: 값이 변하지 않음(constant) 숫자 상수, 문자상수
+-let
+
+difference?
+const(한 번 선언하면 값을 변경시킬 수 없음)
+let(변경 시킬 수 있어)
+
+var도 봤는데? (variable)
+var은 옛날에 사용하던건데 외부로부터 보호받지 못해.
+let과 똑같이 작동하긴해, 지금도 사용해도돼. 
+하지만 더 안전한 const, let을 사용하는게 낫지
+걍쓰지마!
+
+<booleans>
+true
+false
+null
+undefined : 
+초기화가 되지 않았다.
+variable is declared but not assigned to any value.
+
+definition is a declaration which allocates storage for that variable(저장소에)
+initialization is the specification of the initial value to be stored in an object.
+(변수에 할당)
+definition)
+let def;
+initialization)
+def = 3;
+define and initialize at the same time)
+let def = 3;
+
+<Array>
+const array = [숫자, "문자", 다됨, true, undefined, null];
+
+//comment (주석)
+
+<Objects>
+
+{ } curly bracket
+
+console.log()? 콘솔 객체안에 log가 있는거네
+
+console.log(player.name);
+console.log(player["name"]);
+this is same thing
+
+const player = {
+    name : "jong",
+    points : 12,
+    handsome : false,
+    fat : "little bit"
+};
+
+//wtf Originally is it not allowed to change?
+player.fat = null;
+console.log(player.fat);
+
+//nope! variables in the player object isn't declared const
+//but the error occur at this code.
+player = false;
+
+
+<Function>
+function divide(a, b){
+    console.log(a / b);
+}
+
+const player = {
+    name: "jong",
+    sayHello: function(name){
+        console.log("hello! my name is " + name);
+    }
+};
