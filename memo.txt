@@ -1,3 +1,12 @@
+
+브라우저는 html, css, javascript를 이해할 수 있으며
+접근성이 다른 언어들에 비해 매우 뛰어나다.  
+프론트 엔드 쪽에는 자바스크립트를 대체할게없다!
+
+
+html을 동작시키면 접착제 처럼 javascript와 css를 가져온다!
+
+
 basic data type
 
 number 
