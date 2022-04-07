@@ -144,3 +144,49 @@ const player = {
         console.log("hello! my name is " + name);
     }
 };
+
+
+<Document>
+document는 javascirpt에서 object이다. 접근이 가능하다!
+
+javascript는 html의 코드를 동작시키는거 외에 바꾸는거도 가능했구나!
+
+document는 html의 정보를 가지고 있구나!!를 예측할 수 있지
+document로 javascript에서 html의 정보를 가져올 수 있다!
+
+
+<HTML in javascript>
+console.dir(???); 오!!! 여러가지가 담겨있네!!
+
+const title = document.getElementById("title");
+console.dir(title);
+console.log(title.id);
+
+<Searching For Elements>
+
+
+const title = document.getElementsByClassName("hello"); 
+여러 클래스가 있기 때문에 배열이구나!!
+그럼 getElementsByClassName은 배열로 가져오는구나!
+
+여러가지 방법이 있는데 니코가 추천하는건
+querySelector, querySelectorAll  ==> css 형식으로 가져오는거임.
+
+
+ getElementsByClassName 얘는 배열로 다 가져와서 내가 선택해야되는데
+querySelector는 그러지 않아도 되네!
+
+querySelector는 한개만 가져와! 첫번째꺼 단 하나만 가져와 only!
+만약 다가져오고 싶으면 어떡해!!!
+바로 querySelectorAll을 사용하면되지!
+css에서 사용하는 :nth-child, :first-child 다 사용가능
+
+이 가져온것들에 대해 정리하자면 
+html에서는 attribute이고 
+javascript에서는 object안에 있는 properties 들이다!
+
+
+<Events>
+title.addEventListener("click", handleTitleClick);
+여기서 handleTitleClick()을 했다면 handleTitleClick이 실행되겠지? 선언하지말고 
+이름만 넣어야되는구만
