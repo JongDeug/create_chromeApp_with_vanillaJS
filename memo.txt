@@ -190,3 +190,23 @@ javascript에서는 object안에 있는 properties 들이다!
 title.addEventListener("click", handleTitleClick);
 여기서 handleTitleClick()을 했다면 handleTitleClick이 실행되겠지? 선언하지말고 
 이름만 넣어야되는구만
+
+
+<form>
+form태그에 감싸져있다면 input안에 있는 button을 누르거나 type이 submit인 input을 클릭하면
+제출이된다! <input type="submit" value="Log In">
+
+
+<Events>
+loginForm.addEventListener("submit", function(event){
+    event.preventDefault(); 
+    console.log(event);
+})
+어떤 이벤트가 발생했을 때 동작하도록 설정한 함수에 argument로 event정보를 준다.
+info.preventDefault(); ==> submit을 하면 페이지를 새로고침하게 되는데 이걸 막아주는게 preventDefault함수
+submit event에 대한 정보를 받고 event의 기본 동작이 실행되는걸 막아주는 함수라고 생각하면됨.
+영어로 표현해보자면 argument = information about the event that just happened.
+
+
+<local storage>
+궁금하면 mdn window localStorage api 찾아보도록!

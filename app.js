@@ -1,60 +1,34 @@
-const title = document.querySelector(".hello h1:first-child");
-// let flag = 0;
-// function handleTitleClick(){
-    
-//     if(flag == 0){
-//         title.style.color = "blue";
-//         flag = 1;
-//     } else if(flag == 1){
-//         title.style.color = "black";
-//         flag = 0;
-//     }
-// }
-// title.addEventListener("click", handleTitleClick);
+const loginForm = document.querySelector("#login-form");
+const loginInput = document.querySelector("#login-form input");
+const greeting = document.querySelector("#greeting");
 
-console.log(title.className);
-function handleMouseEnter(){
-    title.innerHTML = "mouse is here";
+const HIDDEN_CLASSNAME = "hidden";
+const USERNAME_KEY = "username";
+
+
+// login event handler
+function onLoginSubmit(event){
+    event.preventDefault();
+    loginForm.classList.add(HIDDEN_CLASSNAME);
+    const username = loginInput.value;
+    localStorage.setItem(USERNAME_KEY, username);
+    paintGreetings(username);
 }
 
-function handleMouseLeave(){
-    title.innerHTML = "mouse is gone";
+function paintGreetings(username){
+    greeting.classList.remove(HIDDEN_CLASSNAME);
+    greeting.innerText = `Hello ${username}`;//오 새로운 방법 ~표시임 작따옴표x
+    // greeting.innerText = "Hello! " + username;
 }
 
-function handleMouseDown(){
-    title.innerHTML = "mouse is down";
+const savedUsername = localStorage.getItem(USERNAME_KEY);
+
+if(savedUsername !== null){
+    // show the greeting
+    paintGreetings(savedUsername);
+} 
+else {
+    // show the form
+    loginForm.classList.remove(HIDDEN_CLASSNAME);
+    loginForm.addEventListener("submit", onLoginSubmit);
 }
-
-function handleWindowResize(){
-    document.body.style.backgroundColor = "tomato";
-}
-
-title.onmousedown = handleMouseDown;
-title.addEventListener("mouseenter", handleMouseEnter);
-title.addEventListener("mouseleave", handleMouseLeave);
-title.addEventListener("click", function(){
-    const clickClass = "active";
-
-    // if(title.classList.contains(clickClass)){
-    //     title.classList.remove(clickClass);
-    // }else {
-    //     title.classList.add(clickClass);
-    // }
-    // console.log(title.className);
-    title.classList.toggle("active");
-})
-
-
-window.addEventListener("resize", handleWindowResize);
-window.addEventListener("copy", function(){
-    alert("you copy is detected!")
-})
-window.addEventListener("offline", function(){
-    this.alert("SOS no WIFI");
-})
-window.addEventListener("online", function(){
-    this.alert("WIFI is connected");
-})
-
-
-console.dir(title);
