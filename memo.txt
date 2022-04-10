@@ -210,3 +210,24 @@ submit event에 대한 정보를 받고 event의 기본 동작이 실행되는�
 
 <local storage>
 궁금하면 mdn window localStorage api 찾아보도록!
+
+
+
+<Clock>
+
+setInterval
+핸들러, ms 밀리세컨(10에 -3승)
+interval : 시간적인 간격
+setTimeout
+핸들러, ms 밀리세컨(10에 -3승)
+ms 이후에 function 한 번 실행
+
+padStart()
+string을 다루는 함수 문자열length, 넣고싶은문자
+
+<Math>
+Math.round()
+Math.ceil()
+Math.floor()
+Math.random() 0~1 난수
+
