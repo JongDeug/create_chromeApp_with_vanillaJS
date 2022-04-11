@@ -1,14 +1,16 @@
 const toDoForm = document.querySelector("#todo-form");
 const toDoInput = toDoForm.querySelector("input");
 const toDoList = document.querySelector("#todo-list");
-const toDos = [];
+let toDos = [];
 
 const TODOS_KEY = "todos";
 
-function paintToDo(newToDo){
+function paintToDo(newToDoObj){
     const li = document.createElement("li");
+    // 아 li태그에 id값으로 주면되는구나
+    li.id = newToDoObj.id;
     const span = document.createElement("span");
-    span.innerText = newToDo;
+    span.innerText = newToDoObj.text;
     const button = document.createElement("button");
     // li.appendChild(span);
     // li.appendChild(button);
@@ -33,19 +35,45 @@ function deleteToDo(event){
     li.remove(); //자신을 삭자
     // toDoList.removeChild(li); => 부모와 자식 관계를 끊음.
     // toDoList.remove(li); => li 싹다 삭제
+
+
+    //내가 작성한 함수
+    // toDos.forEach(element =>{
+    //     if(element.id == li.id){
+    //         const index = toDos.indexOf(element);
+    //         toDos.splice(index, 1);
+    //         localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
+    //     }
+    //     //console.log(typeof(element.id));
+    //     //console.log(typeof(li.id));
+    // });  
+    
+    //아하 투두값을 변경시키는게 아니고 필터한값을 다시 넣어야되는구나
+    //toDos = toDos.filter((items) => items.id != li.id);
+    //or
+    toDos = toDos.filter((items) => items.id !== parseInt(li.id));
+    console.log(toDos);
 }
+
+
 
 function handleToDoSubmit(event){
     event.preventDefault(); //submit을 제출할 때 새로고침됨
     const newToDo = toDoInput.value;
     toDoInput.value = "";
-    toDos.push(newToDo);
-    paintToDo(newToDo);
+    //객체를 만드는고임
+    const newToDoObj = {
+        id: Date.now(),
+        text : newToDo
+    };
+    toDos.push(newToDoObj);
+    paintToDo(newToDoObj);
     saveToDo();
 }
 
 toDoForm.addEventListener("submit", handleToDoSubmit);
 
+//x를 눌렀을 때 로컬 에서 삭제해야됨
 
 
 ////////////////////////////////////////////////////////
@@ -53,7 +81,8 @@ toDoForm.addEventListener("submit", handleToDoSubmit);
 const savedToDos = localStorage.getItem(TODOS_KEY);
 if(savedToDos !== null){
     const parsedToDos = JSON.parse(savedToDos);
-    parsedToDos.forEach(element => paintToDo(element));
+    toDos = parsedToDos;
+    parsedToDos.forEach(paintToDo);
 }
 
 // 내가 만든 함수
