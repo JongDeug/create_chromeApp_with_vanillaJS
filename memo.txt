@@ -231,3 +231,6 @@ Math.ceil()
 Math.floor()
 Math.random() 0~1 난수
 
+<save>
+JSON.stringify – 객체를 JSON으로 바꿔줍니다.
+JSON.parse – JSON을 객체로 바꿔줍니다.
